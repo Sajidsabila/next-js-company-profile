@@ -33,10 +33,10 @@ const Navbar = () => {
               <Link href="/">Beranda</Link>
             </li>
             <li className="hover:text-blue-500 transition-colors">
-              <Link href="/produk">Produk</Link>
+              <Link href="/produk">Layanan</Link>
             </li>
             <li className="hover:text-blue-500 transition-colors">
-              <Link href="/blog">Blog</Link>
+              <Link href="/blog">Portofolio</Link>
             </li>
             <li className="hover:text-blue-500 transition-colors">
               <Link href="/kontak">Kontak</Link>
