@@ -10,9 +10,9 @@ const Navbar = () => {
     setOpen(!open);
   }
   return (
-    <div className="navbar bg-white shadow-md py-4">
-      <div className="container mx-auto px-4">
-        <div className="navbar-box flex items-center justify-between">
+    <div className="fixed top-0 left-0 w-full z-50  navbar bg-white shadow-md py-4 ">
+      <div className="container mx-auto px-4 ">
+        <div className="navbar-box flex items-center justify-between ">
           {/* Logo */}
           <div className="logo">
             <h1 className="text-3xl font-bold text-gray-800">Logo</h1>
@@ -27,19 +27,19 @@ const Navbar = () => {
             w-full md:w-auto 
             md:py-0 py-6 
             text-white md:text-gray-800 
-            font-medium transition-all md:opacity-100 md:transition-none`}
+            font-medium transition-all md:opacity-100 md:transition-none `}
           >
             <li className="hover:text-blue-500 transition-colors">
-              <Link href="/">Beranda</Link>
+              <Link href={"#hero"}>Beranda</Link>
             </li>
             <li className="hover:text-blue-500 transition-colors">
-              <Link href="/produk">Layanan</Link>
+              <Link href={"#layanan"}>Layanan</Link>
             </li>
             <li className="hover:text-blue-500 transition-colors">
-              <Link href="/blog">Portofolio</Link>
+              <Link href={"#portofolio"}>Portofolio</Link>
             </li>
             <li className="hover:text-blue-500 transition-colors">
-              <Link href="/kontak">Kontak</Link>
+              <Link href={"#kontak"}>Kontak</Link>
             </li>
           </ul>
 

@@ -2,6 +2,7 @@ import { Poppins} from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import "remixicon/fonts/remixicon.css";
+import { ScroolToTop } from "@/components/ScroolToTop";
 
 const fontPopins = Poppins({
   subsets: ["latin"],
@@ -16,11 +17,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${fontPopins.className} antialiased`}
+        className={`${fontPopins.className} antialiased`} id="hero"
       >
-        <Navbar />
+        <ScroolToTop />
+        <Navbar className="sticky  z-50"/>
         <div className="container mx-auto px-4">
           {children}
         </div>

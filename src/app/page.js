@@ -1,7 +1,9 @@
+import Footer from "@/components/Footer";
 import HeroInfo from "@/components/HeroInfo";
 import DataImage from "@/data";
 import Image from "next/image";
 import Link from "next/link";
+import  * as motion from "motion/react-client"
 
 export default function Home() {
 
@@ -63,14 +65,23 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="py-20 text-center">
-        <h1 className="text-5xl/tight md:text-6xl/tight font-bold">
+      <section className="py-20 text-center" id="hero">
+        <motion.div 
+        initial={{ opacity: 0, y: 50, scale: 0 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        
+        className="text-4xl/tight md:text-5xl/tight">
           Tingkatkan Penjualan Anda <br /> dengan Website Profesional
-        </h1>
+        </motion.div>
       </section>
 
       {/* Hero Image + Info */}
       <div className="max-w-5xl mx-auto relative">
+        <motion.div initial={{ opacity: 0, y: 50 }}
+         animate={{ opacity: 1, y: 0 }}
+         transition={{delay: 1 }}>
+
+       
         <Image
           src={DataImage.Hero}
           alt="hero"
@@ -79,11 +90,12 @@ export default function Home() {
           className="mx-auto rounded-xl shadow-lg"
           priority
         />
+         </motion.div>
         <HeroInfo />
       </div>
 
       {/* Layanan Section */}
-      <section className="mt-32 px-5">
+      <section className="mt-32 px-5" id="layanan">
         {SectionHeading(
           "Layanan Kami",
           "Kami menyediakan layanan profesional untuk membantu bisnis Anda tampil lebih menarik dan menjangkau lebih banyak pelanggan."
@@ -91,20 +103,24 @@ export default function Home() {
 
         <div className="max-w-6xl mx-auto grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 mt-14 text-center">
           {services.map((s, i) => (
-            <div
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
               key={i}
               className="p-6 border border-gray-200 rounded-xl hover:shadow-lg transition-all duration-300"
             >
               <i className={`${s.icon} ri-3x ${s.color} mb-4 inline-block`} />
               <h3 className="font-semibold text-2xl mb-2">{s.title}</h3>
               <p className="text-base text-gray-600">{s.desc}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
 
       {/* Portofolio Section */}
-      <section className="mt-32 px-5">
+      <section className="mt-32 px-5" id="portofolio">
         {SectionHeading(
           "Portofolio",
           "Beberapa hasil karya terbaik yang telah kami selesaikan untuk klien kami."
@@ -112,7 +128,11 @@ export default function Home() {
 
         <div className="max-w-6xl mx-auto grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 mt-14 text-center">
           {projects.map((p, i) => (
-            <div
+            <motion.div
+               initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.6 }}
               key={i}
               className="shadow-xl p-4 rounded-2xl hover:shadow-2xl transition duration-300"
             >
@@ -136,13 +156,13 @@ export default function Home() {
                   Lihat Detail
                 </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
 
       {/* section kontac */}
-       <section className="mt-32 px-5">
+       <section className="mt-32 px-5" id="contact">
         <div className="mt-32 flex items-center justify-between md:flex-row flex-col md:gap-0
         gap-4">
           <h2 className="text-3xl font-bold">
@@ -164,6 +184,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </>
   );
 }
